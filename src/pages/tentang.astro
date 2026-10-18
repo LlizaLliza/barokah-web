@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const nilai = [
+  { judul: 'Profesionalisme', isi: 'Bekerja dengan tanggung jawab dan komunikasi yang jelas.' },
+  { judul: 'Keselamatan Kerja', isi: 'Mengutamakan prosedur keselamatan dalam aktivitas operasional.' },
+  { judul: 'Ketepatan Waktu', isi: 'Menyusun jadwal dan memantau pelaksanaan bersama mitra.' },
+  { judul: 'Fleksibilitas', isi: 'Lingkup layanan dibahas menyesuaikan kebutuhan setiap proyek.' },
+  { judul: 'Koordinasi', isi: 'Menjaga komunikasi antar pihak terkait selama proses layanan.' },
+  { judul: 'Evaluasi', isi: 'Membuka ruang umpan balik untuk perbaikan berkelanjutan.' },
+];
+
+const proses = [
+  { judul: 'Konsultasi', isi: 'Memahami kebutuhan dan ruang lingkup layanan.' },
+  { judul: 'Perencanaan', isi: 'Menyepakati jadwal, peran, dan kebutuhan pendukung.' },
+  { judul: 'Pelaksanaan', isi: 'Koordinasi armada atau tenaga kerja sesuai kesepakatan.' },
+  { judul: 'Evaluasi', isi: 'Meninjau pelaksanaan dan tindak lanjut perbaikan.' },
+];
+
+const k3 = [
+  { judul: 'Keselamatan', isi: 'Mengutamakan prosedur dan perlengkapan kerja yang sesuai.' },
+  { judul: 'Komunikasi', isi: 'Menginformasikan perubahan atau kendala dengan jelas.' },
+  { judul: 'Disiplin', isi: 'Menjaga kesepakatan jadwal dan pembagian tanggung jawab.' },
+  { judul: 'Perbaikan', isi: 'Mencatat umpan balik dan tindak lanjut yang diperlukan.' },
+];
+---
+<Layout
+  title="Tentang Kami | PT. Barokah Satria Expresindo"
+  description="Profil PT. Barokah Satria Expresindo: mitra transportasi, logistik, dan dukungan SDM yang mengutamakan koordinasi, keselamatan, dan komunikasi yang jelas."
+>
+  <section class="mx-auto max-w-6xl px-4 py-12">
+    <p class="text-sm font-semibold uppercase tracking-wide text-brand">Tentang Kami</p>
+    <h1 class="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">Partner in Transportation & Business Support</h1>
+    <p class="mt-4 max-w-3xl text-lg text-slate-600">
+      Dukungan transportasi, logistik, dan sumber daya manusia yang dirancang untuk membantu kebutuhan operasional bisnis.
+    </p>
+    <p class="mt-4 max-w-3xl text-slate-700">
+      PT. Barokah Satria Expresindo hadir sebagai mitra layanan yang menghubungkan kebutuhan transportasi dan dukungan tenaga kerja. Dengan pendekatan yang mengutamakan koordinasi, keselamatan, serta komunikasi yang jelas, layanan dirancang agar selaras dengan kebutuhan setiap mitra.
+    </p>
+  </section>
+
+  <section class="bg-slate-50">
+    <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-2">
+      <div>
+        <h2 class="text-xl font-bold text-slate-900">Visi</h2>
+        <!-- DRAFT: belum disetujui manajemen klien -->
+        <p class="mt-2 text-slate-700">Menjadi mitra yang dipercaya dalam layanan transportasi, logistik, dan dukungan SDM.</p>
+      </div>
+      <div>
+        <h2 class="text-xl font-bold text-slate-900">Misi</h2>
+        <!-- DRAFT: belum disetujui manajemen klien -->
+        <p class="mt-2 text-slate-700">Memberikan layanan yang terkoordinasi, mengutamakan keselamatan, dan membangun kerja sama jangka panjang.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-12">
+    <h2 class="text-2xl font-bold text-slate-900">Nilai Layanan</h2>
+    <p class="mt-1 text-slate-600">Nilai utama yang menjadi dasar koordinasi layanan dan hubungan kerja dengan mitra.</p>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {nilai.map((n) => (
+        <div class="rounded-lg border border-slate-200 p-5">
+          <h3 class="font-semibold text-slate-900">{n.judul}</h3>
+          <p class="mt-1 text-slate-600">{n.isi}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-12">
+      <h2 class="text-2xl font-bold text-slate-900">Proses Kerja yang Terarah</h2>
+      <p class="mt-1 max-w-3xl text-slate-600">
+        Tahapan kerja dapat disepakati bersama agar kebutuhan, tanggung jawab, dan koordinasi pelaksanaan lebih jelas.
+      </p>
+      <ol class="mt-6 grid gap-6 md:grid-cols-4">
+        {proses.map((p, i) => (
+          <li>
+            <span class="text-sm font-bold text-brand">0{i + 1}</span>
+            <h3 class="font-semibold text-slate-900">{p.judul}</h3>
+            <p class="mt-1 text-slate-600">{p.isi}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-12">
+    <h2 class="text-2xl font-bold text-slate-900">Komitmen Operasional & K3</h2>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {k3.map((k) => (
+        <div>
+          <h3 class="font-semibold text-slate-900">{k.judul}</h3>
+          <p class="mt-1 text-slate-600">{k.isi}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
