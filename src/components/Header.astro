@@ -1,0 +1,48 @@
+---
+import { site, nav } from '../site';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const wa = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent('Halo, saya ingin bertanya tentang layanan Anda.')}`;
+---
+<header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <a href="/" class="text-sm font-bold leading-tight text-brand-dark sm:text-base">
+      {site.name}
+    </a>
+
+    <!-- Desktop -->
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Navigasi utama">
+      {nav.map((item) => (
+        <a
+          href={item.href}
+          aria-current={path === item.href ? 'page' : undefined}
+          class:list={['text-sm hover:text-brand', path === item.href ? 'font-semibold text-brand' : 'text-slate-700']}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a href={wa} class="rounded-md bg-brand px-4 py-2 text-sm font-semibold text-white hover:bg-brand-dark">
+        WhatsApp
+      </a>
+    </nav>
+
+    <!-- Mobile: <details> bawaan HTML, tanpa JavaScript -->
+    <details class="relative md:hidden">
+      <summary class="cursor-pointer list-none rounded-md border border-slate-300 px-3 py-1.5 text-sm font-medium">
+        Menu
+      </summary>
+      <nav class="absolute right-0 mt-2 flex w-56 flex-col rounded-md border border-slate-200 bg-white p-2 shadow-lg" aria-label="Navigasi utama">
+        {nav.map((item) => (
+          <a
+            href={item.href}
+            aria-current={path === item.href ? 'page' : undefined}
+            class:list={['rounded px-3 py-2 text-sm hover:bg-slate-100', path === item.href && 'font-semibold text-brand']}
+          >
+            {item.label}
+          </a>
+        ))}
+        <a href={wa} class="mt-1 rounded bg-brand px-3 py-2 text-center text-sm font-semibold text-white">WhatsApp</a>
+      </nav>
+    </details>
+  </div>
+</header>
