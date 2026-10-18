@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const trucking = [
+  { judul: 'Transportasi barang', isi: 'Koordinasi pengiriman untuk kebutuhan antarkota maupun antarlokasi.' },
+  { judul: 'Penjadwalan pengiriman', isi: 'Perencanaan jadwal dan kebutuhan armada bersama mitra.' },
+  { judul: 'Dukungan logistik', isi: 'Koordinasi proses pengangkutan dan distribusi barang.' },
+  { judul: 'Layanan sesuai kebutuhan', isi: 'Rute, jenis kendaraan, dan lingkup layanan dikonfirmasi sebelum pelaksanaan.' },
+];
+
+// Foto menyusul di langkah 15.30
+const armada = ['Truk Kontainer 20"', 'CDDL', 'Tronton WB'];
+
+const armadaPrinsip = [
+  { judul: 'Perencanaan', isi: 'Kebutuhan armada dibahas sebelum pengiriman.' },
+  { judul: 'Koordinasi', isi: 'Komunikasi jadwal dan proses operasional.' },
+  { judul: 'Kelayakan', isi: 'Pemeriksaan kesiapan unit menjadi perhatian.' },
+];
+
+const sdm = [
+  'Loading / unloading',
+  'Driver & helper',
+  'Security / satpam',
+  'Operator operasional',
+  'Outsourcing / penempatan',
+  'Pelatihan & orientasi',
+];
+
+const sektor = [
+  { judul: 'Distribusi & Pergudangan', isi: 'Dukungan aliran barang dan aktivitas gudang.' },
+  { judul: 'Manufaktur', isi: 'Dukungan kebutuhan operasional yang disepakati.' },
+  { judul: 'Perdagangan & Ritel', isi: 'Koordinasi untuk kebutuhan distribusi barang.' },
+  { judul: 'Konstruksi & Proyek', isi: 'Dukungan pengiriman atau tenaga kerja sesuai lingkup proyek.' },
+  { judul: 'Industri Lainnya', isi: 'Kebutuhan khusus dibahas melalui konsultasi awal.' },
+];
+---
+<Layout
+  title="Layanan Trucking, Logistik & Human Capital | PT. Barokah Satria Expresindo"
+  description="Layanan transportasi barang, penjadwalan pengiriman, armada truk kontainer, CDDL, dan tronton, serta dukungan SDM: loading/unloading, driver, security, dan operator."
+>
+  <section class="mx-auto max-w-6xl px-4 pt-12">
+    <p class="text-sm font-semibold uppercase tracking-wide text-brand">Layanan Utama</p>
+    <h1 class="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">Transportasi, Logistik, dan Dukungan SDM</h1>
+  </section>
+
+  <section id="trucking" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-12">
+    <h2 class="text-2xl font-bold text-slate-900">Trucking & Logistics</h2>
+    <p class="mt-1 max-w-3xl text-slate-600">
+      Dukungan pengiriman barang dengan koordinasi armada dan jadwal yang disesuaikan dengan kebutuhan operasional.
+    </p>
+    <div class="mt-6 grid gap-6 sm:grid-cols-2">
+      {trucking.map((t) => (
+        <div class="rounded-lg border border-slate-200 p-5">
+          <h3 class="font-semibold text-slate-900">{t.judul}</h3>
+          <p class="mt-1 text-slate-600">{t.isi}</p>
+        </div>
+      ))}
+    </div>
+    <p class="mt-4 text-sm text-slate-500">Lingkup operasional dikonfirmasi sesuai kebutuhan dan ketersediaan.</p>
+  </section>
+
+  <section id="armada" class="scroll-mt-20 bg-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-12">
+      <h2 class="text-2xl font-bold text-slate-900">Armada untuk Berbagai Kebutuhan Operasional</h2>
+      <div class="mt-6 grid gap-6 md:grid-cols-3">
+        {armada.map((a) => (
+          <div>
+            <!-- foto armada dipasang di langkah 15.30 -->
+            <h3 class="font-semibold text-slate-900">{a}</h3>
+          </div>
+        ))}
+      </div>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        {armadaPrinsip.map((p) => (
+          <div>
+            <h3 class="text-sm font-bold uppercase tracking-wide text-brand">{p.judul}</h3>
+            <p class="mt-1 text-slate-600">{p.isi}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="sdm" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-12">
+    <h2 class="text-2xl font-bold text-slate-900">Human Capital Solution</h2>
+    <p class="mt-1 max-w-3xl text-slate-600">
+      Dukungan kebutuhan tenaga kerja untuk membantu kelancaran operasional perusahaan. Penempatan tenaga kerja dan ruang lingkup tugas dibahas sesuai kebutuhan, kualifikasi, serta ketentuan yang disepakati bersama.
+    </p>
+    <ul class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {sdm.map((s) => (
+        <li class="rounded-lg border border-slate-200 px-4 py-3 font-medium text-slate-800">{s}</li>
+      ))}
+    </ul>
+  </section>
+
+  <section id="sektor" class="scroll-mt-20 bg-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-12">
+      <h2 class="text-2xl font-bold text-slate-900">Sektor Industri & Peluang Kemitraan</h2>
+      <p class="mt-1 max-w-3xl text-slate-600">
+        Contoh sektor potensial yang dapat dijajaki sesuai kebutuhan mitra dan cakupan operasional.
+      </p>
+      <div class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {sektor.map((s) => (
+          <div>
+            <h3 class="font-semibold text-slate-900">{s.judul}</h3>
+            <p class="mt-1 text-slate-600">{s.isi}</p>
+          </div>
+        ))}
+      </div>
+      <p class="mt-8 font-semibold text-brand-dark">
+        Kami terbuka untuk mendiskusikan kebutuhan transportasi, logistik, dan dukungan SDM.
+      </p>
+    </div>
+  </section>
+</Layout>
