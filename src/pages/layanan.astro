@@ -1,5 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import kontainer from '../assets/armada-kontainer-20.jpg';
+import cddl from '../assets/armada-cddl.jpg';
+import tronton from '../assets/armada-tronton-wb.jpg';
+import sdmFoto from '../assets/sdm.jpg';
 
 const trucking = [
   { judul: 'Transportasi barang', isi: 'Koordinasi pengiriman untuk kebutuhan antarkota maupun antarlokasi.' },
@@ -8,8 +13,11 @@ const trucking = [
   { judul: 'Layanan sesuai kebutuhan', isi: 'Rute, jenis kendaraan, dan lingkup layanan dikonfirmasi sebelum pelaksanaan.' },
 ];
 
-// Foto menyusul di langkah 15.30
-const armada = ['Truk Kontainer 20"', 'CDDL', 'Tronton WB'];
+const armada = [
+  { nama: 'Truk Kontainer 20"', foto: kontainer, alt: 'Truk kontainer 20" milik PT. Barokah Satria Expresindo' },
+  { nama: 'CDDL', foto: cddl, alt: 'Armada CDDL PT. Barokah Satria Expresindo' },
+  { nama: 'Tronton WB', foto: tronton, alt: 'Armada tronton WB PT. Barokah Satria Expresindo' },
+];
 
 const armadaPrinsip = [
   { judul: 'Perencanaan', isi: 'Kebutuhan armada dibahas sebelum pengiriman.' },
@@ -64,10 +72,10 @@ const sektor = [
       <h2 class="text-2xl font-bold text-slate-900">Armada untuk Berbagai Kebutuhan Operasional</h2>
       <div class="mt-6 grid gap-6 md:grid-cols-3">
         {armada.map((a) => (
-          <div>
-            <!-- foto armada dipasang di langkah 15.30 -->
-            <h3 class="font-semibold text-slate-900">{a}</h3>
-          </div>
+          <figure>
+            <Image src={a.foto} alt={a.alt} widths={[400, 800]} sizes="(min-width: 768px) 33vw, 100vw" class="aspect-[4/3] w-full rounded-lg object-cover" />
+            <figcaption class="mt-3 font-semibold text-slate-900">{a.nama}</figcaption>
+          </figure>
         ))}
       </div>
       <div class="mt-8 grid gap-6 md:grid-cols-3">
@@ -81,7 +89,8 @@ const sektor = [
     </div>
   </section>
 
-  <section id="sdm" class="mx-auto max-w-6xl scroll-mt-20 px-4 py-12">
+  <section id="sdm" class="mx-auto grid max-w-6xl scroll-mt-20 gap-8 px-4 py-12 md:grid-cols-2">
+  <div>
     <h2 class="text-2xl font-bold text-slate-900">Human Capital Solution</h2>
     <p class="mt-1 max-w-3xl text-slate-600">
       Dukungan kebutuhan tenaga kerja untuk membantu kelancaran operasional perusahaan. Penempatan tenaga kerja dan ruang lingkup tugas dibahas sesuai kebutuhan, kualifikasi, serta ketentuan yang disepakati bersama.
@@ -91,6 +100,8 @@ const sektor = [
         <li class="rounded-lg border border-slate-200 px-4 py-3 font-medium text-slate-800">{s}</li>
       ))}
     </ul>
+    </div>
+    <Image src={sdmFoto} alt="Tenaga kerja PT. Barokah Satria Expresindo mengenakan perlengkapan keselamatan" widths={[400, 800]} sizes="(min-width: 768px) 50vw, 100vw" class="aspect-[4/3] w-full rounded-lg object-cover" />
   </section>
 
   <section id="sektor" class="scroll-mt-20 bg-slate-50">

@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import profilFoto from '../assets/armada-operasional.jpg';
 
 const nilai = [
   { judul: 'Profesionalisme', isi: 'Bekerja dengan tanggung jawab dan komunikasi yang jelas.' },
@@ -39,19 +41,25 @@ const k3 = [
     </p>
   </section>
 
-  <section class="bg-slate-50">
-    <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 md:grid-cols-2">
-      <div>
-        <h2 class="text-xl font-bold text-slate-900">Visi</h2>
-        <!-- DRAFT: belum disetujui manajemen klien -->
-        <p class="mt-2 text-slate-700">Menjadi mitra yang dipercaya dalam layanan transportasi, logistik, dan dukungan SDM.</p>
-      </div>
-      <div>
-        <h2 class="text-xl font-bold text-slate-900">Misi</h2>
-        <!-- DRAFT: belum disetujui manajemen klien -->
-        <p class="mt-2 text-slate-700">Memberikan layanan yang terkoordinasi, mengutamakan keselamatan, dan membangun kerja sama jangka panjang.</p>
-      </div>
+  <section class="mx-auto grid max-w-6xl items-center gap-8 px-4 py-12 md:grid-cols-2">
+    <div>
+      <p class="text-sm font-semibold uppercase tracking-wide text-brand">Tentang Kami</p>
+      <h1 class="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">Partner in Transportation & Business Support</h1>
+      <p class="mt-4 text-lg text-slate-600">
+        Dukungan transportasi, logistik, dan sumber daya manusia yang dirancang untuk membantu kebutuhan operasional bisnis.
+      </p>
+      <p class="mt-4 text-slate-700">
+        PT. Barokah Satria Expresindo hadir sebagai mitra layanan yang menghubungkan kebutuhan transportasi dan dukungan tenaga kerja. Dengan pendekatan yang mengutamakan koordinasi, keselamatan, serta komunikasi yang jelas, layanan dirancang agar selaras dengan kebutuhan setiap mitra.
+      </p>
     </div>
+
+    <Image
+      src={profilFoto}
+      alt="Armada dan aktivitas operasional PT. Barokah Satria Expresindo"
+      widths={[400, 800]}
+      sizes="(min-width: 768px) 50vw, 100vw"
+      class="aspect-[4/3] w-full rounded-lg object-cover"
+    />
   </section>
 
   <section class="mx-auto max-w-6xl px-4 py-12">
