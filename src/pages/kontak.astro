@@ -1,7 +1,6 @@
  ---
 import Layout from '../layouts/Layout.astro';
-import { site } from '../site';
-const wa = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent('Halo, saya ingin bertanya tentang layanan Anda.')}`;
+import { site, waLink } from '../site';
 ---
 <Layout
   title="Kontak | PT. Barokah Satria Expresindo"
@@ -28,7 +27,7 @@ const wa = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent('Halo, saya
           <dt class="text-sm font-semibold uppercase tracking-wide text-slate-500">Telepon</dt>
           <dd class="mt-1"><a href={`tel:${site.phoneHref}`} class="text-brand hover:underline">{site.phone}</a></dd>
         </div>
-        <a href={wa} class="inline-block rounded-md bg-brand px-5 py-3 font-semibold text-white hover:bg-brand-dark">Chat WhatsApp</a>
+        <a href={waLink} class="inline-block rounded-md bg-brand px-5 py-3 font-semibold text-white hover:bg-brand-dark">Chat WhatsApp</a>
       </dl>
 
       <div>

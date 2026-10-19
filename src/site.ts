@@ -14,3 +14,5 @@ export const nav = [
   { href: '/layanan', label: 'Layanan' },
   { href: '/kontak', label: 'Kontak' },
 ];
+
+export const waLink = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent('Halo, saya ingin bertanya tentang layanan Anda.')}`;
