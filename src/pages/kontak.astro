@@ -1,38 +1,130 @@
- ---
+---
 import Layout from '../layouts/Layout.astro';
 import { site, waLink } from '../site';
+
+const field =
+  'mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-slate-900 placeholder:text-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/30';
+const label = 'block text-sm font-medium text-slate-800';
+
+const mapQuery = encodeURIComponent('Viktoria Residence, Meteseh, Tembalang, Semarang');
+const mapEmbed = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+const mapLink = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
 ---
 <Layout
   title="Kontak | PT. Barokah Satria Expresindo"
   description="Hubungi PT. Barokah Satria Expresindo di Tembalang, Semarang untuk kebutuhan trucking, logistik, dan dukungan SDM."
 >
-  <section class="mx-auto max-w-6xl px-4 py-12">
+  <!-- 1. KONTAK + FORM -->
+  <section class="mx-auto max-w-6xl px-4 py-12 md:py-16">
     <p class="text-sm font-semibold uppercase tracking-wide text-brand">Hubungi Kami</p>
     <h1 class="mt-2 text-3xl font-bold text-slate-900 md:text-4xl">Mari Bicarakan Kebutuhan Anda</h1>
     <p class="mt-4 max-w-3xl text-slate-600">
       Hubungi tim {site.name} untuk mendiskusikan kebutuhan trucking, logistik, dan dukungan SDM.
     </p>
 
-    <div class="mt-10 grid gap-10 md:grid-cols-2">
-      <dl class="space-y-6">
-        <div>
-          <dt class="text-sm font-semibold uppercase tracking-wide text-slate-500">Alamat</dt>
-          <dd class="mt-1 text-slate-800">{site.address}</dd>
-        </div>
-        <div>
-          <dt class="text-sm font-semibold uppercase tracking-wide text-slate-500">Email</dt>
-          <dd class="mt-1"><a href={`mailto:${site.email}`} class="text-brand hover:underline">{site.email}</a></dd>
-        </div>
-        <div>
-          <dt class="text-sm font-semibold uppercase tracking-wide text-slate-500">Telepon</dt>
-          <dd class="mt-1"><a href={`tel:${site.phoneHref}`} class="text-brand hover:underline">{site.phone}</a></dd>
-        </div>
-        <a href={waLink} class="inline-block rounded-md bg-brand px-5 py-3 font-semibold text-white hover:bg-brand-dark">Chat WhatsApp</a>
-      </dl>
-
+    <div class="mt-10 grid gap-10 md:grid-cols-2 md:gap-12">
+      <!-- Kolom kiri: detail kontak -->
       <div>
-        <!-- Form (Netlify Forms) dan embed Google Maps  -->
+        <dl class="space-y-6">
+          <div>
+            <dt class="text-sm font-semibold uppercase tracking-wide text-slate-500">Alamat</dt>
+            <dd class="mt-1 text-slate-800">{site.address}</dd>
+          </div>
+          <div>
+            <dt class="text-sm font-semibold uppercase tracking-wide text-slate-500">Telepon</dt>
+            <dd class="mt-1">
+              <a href={`tel:${site.phoneHref}`} class="text-lg font-semibold text-brand hover:underline">{site.phone}</a>
+            </dd>
+          </div>
+          <div>
+            <dt class="text-sm font-semibold uppercase tracking-wide text-slate-500">Email</dt>
+            <dd class="mt-1">
+              <a href={`mailto:${site.email}`} class="break-all font-semibold text-brand hover:underline">{site.email}</a>
+            </dd>
+          </div>
+        </dl>
+        <a
+          href={waLink}
+          class="mt-8 inline-block w-full rounded-md bg-brand px-5 py-3 text-center font-semibold text-white hover:bg-brand-dark sm:w-auto"
+        >
+          Chat WhatsApp
+        </a>
       </div>
+
+      <!-- Kolom kanan: form -->
+      <form
+        name="kontak"
+        method="POST"
+        action="/terima-kasih"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="space-y-4"
+      >
+        <input type="hidden" name="form-name" value="kontak" />
+        <p class="hidden">
+          <label>Jangan diisi: <input name="bot-field" /></label>
+        </p>
+
+        <div>
+          <label for="nama" class={label}>Nama</label>
+          <input id="nama" name="nama" type="text" required autocomplete="name" class={field} />
+        </div>
+
+        <div>
+          <label for="perusahaan" class={label}>Perusahaan <span class="font-normal text-slate-500">(opsional)</span></label>
+          <input id="perusahaan" name="perusahaan" type="text" autocomplete="organization" class={field} />
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label for="telepon" class={label}>Telepon / WhatsApp</label>
+            <input id="telepon" name="telepon" type="tel" inputmode="tel" required autocomplete="tel" class={field} />
+          </div>
+          <div>
+            <label for="email" class={label}>Email <span class="font-normal text-slate-500">(opsional)</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" class={field} />
+          </div>
+        </div>
+
+        <div>
+          <label for="kebutuhan" class={label}>Kebutuhan</label>
+          <select id="kebutuhan" name="kebutuhan" required class={field}>
+            <option value="" disabled selected>Pilih kebutuhan</option>
+            <option>Trucking & Logistics</option>
+            <option>Human Capital Solution</option>
+            <option>Lainnya</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="pesan" class={label}>Pesan</label>
+          <textarea id="pesan" name="pesan" rows="5" required class={field}></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full rounded-md bg-brand px-5 py-3 font-semibold text-white hover:bg-brand-dark sm:w-auto"
+        >
+          Kirim Pesan
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 2. PETA -->
+  <section class="border-t border-slate-200 bg-slate-50">
+    <div class="mx-auto max-w-6xl px-4 py-12 md:py-16">
+      <h2 class="text-2xl font-bold text-slate-900 md:text-3xl">Lokasi Kami</h2>
+      <p class="mt-2 text-slate-600">{site.address}</p>
+      <iframe
+        src={mapEmbed}
+        title={`Peta lokasi ${site.name}`}
+        class="mt-6 h-72 w-full rounded-lg border border-slate-200 sm:h-96"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen
+      ></iframe>
+      <a href={mapLink} class="mt-4 inline-block font-semibold text-brand hover:underline">Buka di Google Maps →</a>
     </div>
   </section>
 </Layout>

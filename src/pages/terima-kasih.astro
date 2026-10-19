@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, waLink } from '../site';
+---
+<Layout
+  title="Terima Kasih | PT. Barokah Satria Expresindo"
+  description="Pesan Anda sudah kami terima."
+  noindex
+>
+  <section class="mx-auto max-w-2xl px-4 py-20 text-center md:py-28">
+    <h1 class="text-3xl font-bold text-slate-900 md:text-4xl">Terima kasih</h1>
+    <p class="mt-4 text-lg text-slate-600">
+      Pesan Anda sudah kami terima. Tim {site.name} akan menanggapi melalui telepon atau email yang Anda cantumkan.
+    </p>
+    <div class="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+      <a href="/" class="rounded-md bg-brand px-5 py-3 font-semibold text-white hover:bg-brand-dark">Kembali ke Beranda</a>
+      <a href={waLink} class="rounded-md border border-slate-300 px-5 py-3 font-semibold text-slate-800 hover:border-brand hover:text-brand">Chat WhatsApp</a>
+    </div>
+  </section>
+</Layout>
