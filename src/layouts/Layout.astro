@@ -6,6 +6,40 @@ import Footer from "../components/Footer.astro";
 const { title, description, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL("/og.jpg", Astro.site);
+
+// Data Schema.org LocalBusiness berdasarkan NIB resmi
+const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "PT Barokah Satria Expresindo",
+    "image": new URL("/og.jpg", Astro.site).toString(),
+    "@id": canonical.toString(),
+    "url": canonical.toString(),
+    "telephone": "", // Tambahkan nomor telepon jika ada
+    "email": "barokahsatria7@gmail.com",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Ringin Telu RT 11/RW 01, Kalipancur",
+        "addressLocality": "Ngaliyan, Kota Semarang",
+        "addressRegion": "Jawa Tengah",
+        "postalCode": "50183",
+        "addressCountry": "ID"
+    },
+    "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+        ],
+        "opens": "08:00",
+        "closes": "17:00"
+    },
+    "priceRange": "$$"
+};
 ---
 <!doctype html>
 <html lang="id">
@@ -23,11 +57,16 @@ const ogImage = new URL("/og.jpg", Astro.site);
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
+        <!-- Open Graph -->
         <meta property="og:type" content="website" />
+        <meta property="og:locale" content="id_ID" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImage} />
         <meta property="og:url" content={canonical} />
+
+        <!-- Schema.org / JSON-LD LocalBusiness -->
+        <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
     </head>
     <body class="font-sans text-slate-800 antialiased">
         <Header />
