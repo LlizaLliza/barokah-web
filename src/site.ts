@@ -1,12 +1,22 @@
 export const site = {
-  name: 'PT. Barokah Satria Expresindo',
-  tagline: 'Bergerak Bersama, Melayani Lebih Baik',
-  address: 'Viktoria Residence No LX 4, Kel. Meteseh, Kec. Tembalang, Kota Semarang',
-  phone: '081 3333 1346',
-  phoneHref: '+628133331346',
-  whatsapp: '628133331346',
-  email: 'barokahsatria7@gmail.com',
-};
+    name: 'PT. Barokah Satria Expresindo',
+    legalName: 'PT BAROKAH SATRIA EXPRESINDO',
+    tagline: 'Bergerak Bersama, Melayani Lebih Baik',
+    address: 'Ringin Telu, Desa/Kel. Kalipancur, Kec. Ngaliyan, Kota Semarang, Jawa Tengah 50183',
+    operationalAddress: 'Viktoria Residence No LX 4, Kel. Meteseh, Kec. Tembalang, Kota Semarang',
+    nib: '1310260073033',
+    scale: 'Usaha Mikro',
+    kbli: [
+      { code: '49231', name: 'Angkutan Bermotor untuk Barang Umum', risk: 'Menengah Tinggi' },
+      { code: '78200', name: 'Aktivitas Penyediaan Tenaga Kerja Sementara dan Penyediaan Sumber Daya Manusia Lainnya', risk: 'Rendah' },
+    ],
+    phone: '081 3333 1346',
+    phone2: '081 2262 15589',
+    phoneHref: '+628133331346',
+    phone2Href: '+6281226215589',
+    whatsapp: '628133331346',
+    email: 'barokahsatria7@gmail.com',
+ };
 
 export const nav = [
   { href: '/', label: 'Beranda' },
