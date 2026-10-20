@@ -2,8 +2,8 @@ export const site = {
     name: 'PT. Barokah Satria Expresindo',
     legalName: 'PT BAROKAH SATRIA EXPRESINDO',
     tagline: 'Bergerak Bersama, Melayani Lebih Baik',
-    address: 'Ringin Telu, Desa/Kel. Kalipancur, Kec. Ngaliyan, Kota Semarang, Jawa Tengah 50183',
-    operationalAddress: 'Ringin Telu, Desa/Kel. Kalipancur, Kec. Ngaliyan, Kota Semarang, Jawa Tengah 50183',
+    address: 'Viktoria residence no LX 4 , Kel. Meteseh, Kec. Tembalang, Kota Semarang',
+    operationalAddress: 'Viktoria residence no LX 4 , Kel. Meteseh, Kec. Tembalang, Kota Semarang',
     nib: '1310260073033',
     scale: 'Usaha Mikro',
     kbli: [
