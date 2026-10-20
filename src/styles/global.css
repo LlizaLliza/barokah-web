@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-dark: #08264f; 
-  --color-brand: #15abab;      
-  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --color-brand-dark: #08264f;
+  --color-brand: #0e8f8f;
+  --color-brand-light: #e8f2f8;
+  --color-brand-blue: #2871b7;
+  --font-sans: "Inter", system-ui, sans-serif;
 }
 
 a:focus-visible,

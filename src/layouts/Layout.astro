@@ -15,7 +15,7 @@ const localBusinessSchema = {
     "image": new URL("/og.jpg", Astro.site).toString(),
     "@id": canonical.toString(),
     "url": canonical.toString(),
-    "telephone": "", // Tambahkan nomor telepon jika ada
+    "telephone": "+628133331346",
     "email": "barokahsatria7@gmail.com",
     "address": {
         "@type": "PostalAddress",
@@ -50,7 +50,19 @@ const localBusinessSchema = {
         <meta name="description" content={description} />
         {noindex && <meta name="robots" content="noindex" />}
         <link rel="canonical" href={canonical} />
-        <link rel="icon" href="/favicon.svg" />
+        <!-- Favicon: SVG (modern browsers, supports dark mode) -->
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <!-- Favicon: ICO fallback (legacy browsers) -->
+        <link rel="icon" type="image/x-icon" sizes="any" href="/favicon.ico" />
+        <!-- Favicon: PNG sizes -->
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <!-- Apple Touch Icon (iOS home screen) -->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <!-- Web App Manifest -->
+        <link rel="manifest" href="/site.webmanifest" />
+        <!-- Theme color (address bar on mobile) -->
+        <meta name="theme-color" content="#08264f" />
 
         <!-- Google Fonts Inter -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
