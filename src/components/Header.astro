@@ -5,8 +5,11 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-    <a href="/" class="text-sm font-bold leading-tight text-brand-dark sm:text-base">
-      {site.name}
+    
+    <!-- Logo & Nama Perusahaan -->
+    <a href="/" class="flex items-center gap-2.5 text-sm font-bold leading-tight text-brand-dark sm:text-base">
+      <img src="/favicon.png" alt="Logo PT Barokah Satria Expresindo" class="h-8 w-auto object-contain" />
+      <span>{site.name}</span>
     </a>
 
     <!-- Desktop -->
