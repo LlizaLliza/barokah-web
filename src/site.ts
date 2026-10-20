@@ -16,6 +16,7 @@ export const site = {
     phone2Href: '+6281226215589',
     whatsapp: '628133331346',
     email: 'barokahsatria7@gmail.com',
+    branchAddress: 'Randusari RT 01/03, Kec. Teras, Kab. Boyolali',
  };
 
 export const nav = [
